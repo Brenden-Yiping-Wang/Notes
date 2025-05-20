@@ -177,3 +177,71 @@ This file is the main file for the TiKV driver. It contains two main structs: `T
 11. `executor.Next(ctx)`
     - File: `executor/executor.go`
     - Description: Pulls results from TiKV through the executor. Applies final operations like aggregation or limit, and returns rows to the client.
+   
+```
+const (
+	CmdGet CmdType = 1 + iota
+	CmdScan
+	CmdPrewrite
+	CmdCommit
+	CmdCleanup
+	CmdBatchGet
+	CmdBatchRollback
+	CmdScanLock
+	CmdResolveLock
+	CmdGC
+	CmdDeleteRange
+	CmdPessimisticLock
+	CmdPessimisticRollback
+	CmdTxnHeartBeat
+	CmdCheckTxnStatus
+	CmdCheckSecondaryLocks
+	CmdFlashbackToVersion
+	CmdPrepareFlashbackToVersion
+	CmdFlush
+	CmdBufferBatchGet
+
+	CmdRawGet CmdType = 256 + iota
+	CmdRawBatchGet
+	CmdRawPut
+	CmdRawBatchPut
+	CmdRawDelete
+	CmdRawBatchDelete
+	CmdRawDeleteRange
+	CmdRawScan
+	CmdRawGetKeyTTL
+	CmdRawCompareAndSwap
+	CmdRawChecksum
+
+	CmdUnsafeDestroyRange
+
+	CmdRegisterLockObserver
+	CmdCheckLockObserver
+	CmdRemoveLockObserver
+	CmdPhysicalScanLock
+
+	CmdStoreSafeTS
+	CmdLockWaitInfo
+
+	CmdGetHealthFeedback
+	CmdBroadcastTxnStatus
+
+	CmdCop CmdType = 512 + iota
+	CmdCopStream
+	CmdBatchCop
+	CmdMPPTask   // TODO: These non TiKV RPCs should be moved out of TiKV client
+	CmdMPPConn   // TODO: These non TiKV RPCs should be moved out of TiKV client
+	CmdMPPCancel // TODO: These non TiKV RPCs should be moved out of TiKV client
+	CmdMPPAlive  // TODO: These non TiKV RPCs should be moved out of TiKV client
+
+	CmdMvccGetByKey CmdType = 1024 + iota
+	CmdMvccGetByStartTs
+	CmdSplitRegion
+
+	CmdDebugGetRegionProperties CmdType = 2048 + iota
+	CmdCompact                          // TODO: These non TiKV RPCs should be moved out of TiKV client
+	CmdGetTiFlashSystemTable            // TODO: These non TiKV RPCs should be moved out of TiKV client
+
+	CmdEmpty CmdType = 3072 + iota
+)
+```
