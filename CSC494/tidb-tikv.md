@@ -423,6 +423,7 @@ if stmt.PsStmt != nil { // point plan short path
 
 - File: `server/driver_tidb.go`
 - Description: ExecuteStmt implements QueryCtx interface.
+- Note: `LOAD DATA` and `IMPORT INTO` are handled in `HandleNonTransactionalDML`, which cannot be rolled back and commits automatically.
 
 ```go
 if s, ok := stmt.(*ast.NonTransactionalDMLStmt); ok {
@@ -470,3 +471,54 @@ case mysql.ComQuery: // Most frequently used command.
 
 - File: `server/conn.go`
 - Description: Run reads client query and writes query result to client in for loop
+
+## stmt.PsStmt
+
+1. [14] from last section, we called `compiler := executor.Compiler{Ctx: s}`
+2. `finalPlan, names, err := planner.Optimize(ctx, c.Ctx, nodeW, is)`
+3. ```go
+   // Use cached plan if possible.
+   if preparedObj != nil && plannercore.IsSafeToReusePointGetExecutor(c.Ctx, is, preparedObj) {
+   	if exec, isExec := finalPlan.(*plannercore.Execute); isExec {
+   		if pointPlan, isPointPlan := exec.Plan.(*plannercore.PointGetPlan); isPointPlan {
+   			stmt.PsStmt, stmt.Plan = preparedObj, pointPlan // notify to re-use the cached plan
+   		}
+   	}
+   }
+   ```
+
+## Not KVGet (High->low)
+
+1. `session.ExecuteStmt(ctx, stmt)`
+
+   - File: `session/session.go`
+   - Description: ExecuteStmt executes a statement.
+
+   ```go
+   if stmt.PsStmt != nil { // point plan short path
+   	recordSet, err = stmt.PointGet(ctx)
+   	s.txn.changeToInvalid()
+   } else {
+   	recordSet, err = runStmt(ctx, s, stmt)
+   }
+   ```
+
+2. `runStmt(ctx, se, s)`
+
+   - File: `session/session.go`
+   - Description: runStmt executes the sqlexec.Statement and commit or rollback the current transaction.
+
+3. `sqlexec.Statement.Exec(ctx)`
+
+   - File: `sqlexec/adapter.go`
+   - Description: Exec builds an Executor from a plan. If the Executor doesn't return result, like the INSERT, UPDATE statements, it executes in this function. If the Executor returns result, execution is done after this function returns, in the returned sqlexec.RecordSet Next method.
+
+4. `ExecStmt.buildExecutor()`
+
+   - File: `executor/adapter.go`
+   - Description: buildExecutor builds an executor from a plan.
+
+5. `executorBuilder.build(plan)`
+
+   - File: `executor/builder.go`
+   - Description: Builds an executor
