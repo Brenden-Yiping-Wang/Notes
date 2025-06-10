@@ -1,0 +1,43 @@
+```
+[2025/06/08 23:08:12.407 -05:00] [INFO] [snapshot.go:681] ["================================================"]
+[2025/06/08 23:08:12.407 -05:00] [INFO] [snapshot.go:682] [Get] [req.Type=Get] [req="task_id:866 busy_threshold_ms:1000 resource_control_context:<resource_group_name:\"default\" > "]
+[2025/06/08 23:08:12.407 -05:00] [INFO] [snapshot.go:683] ["================================================"]
+[2025/06/08 23:08:12.407 -05:00] [INFO] [region_request.go:1055] ["================================================"]
+[2025/06/08 23:08:12.407 -05:00] [INFO] [region_request.go:1056] ["SEND REQ TO REGION"] [req.Type=Get] [req="region_id:10011 region_epoch:<conf_ver:1 version:71 > peer:<id:10012 store_id:1 > max_execution_duration_ms:30000 task_id:866 resource_group_tag:\"\\n \\354\\021\\366\\252\\363\\307\\n\\331d\\347\\\\\\250\\225\\207/\\343\\337\\313\\357\\222\\323\\344\\304;\\340\\200'\\243v\\272\\200%\\022 \\371\\222a\\344\\033j\\276D@\\347R0\\357\\346\\000\\010\\327C&\\004K\\362\\023p\\304\\005R(\\251\\036\\3430\\030\\001 \\205\\001\" request_source:\"leader_external_Select\" busy_threshold_ms:1000 resource_control_context:<resource_group_name:\"default\" > cluster_id:7508966257383359189 "]
+[2025/06/08 23:08:12.407 -05:00] [INFO] [region_request.go:1057] ["================================================"]
+[2025/06/08 23:08:12.408 -05:00] [INFO] [snapshot.go:762] ["================================================"]
+[2025/06/08 23:08:12.408 -05:00] [INFO] [snapshot.go:763] [Resp] [resp="{\"Resp\":{\"value\":\"gAABAAAAAgUAQWxpY2U=\",\"exec_details_v2\":{\"time_detail\":{\"total_rpc_wall_time_ns\":467602},\"scan_detail_v2\":{\"processed_versions\":1,\"processed_versions_size\":41,\"total_versions\":1,\"rocksdb_block_cache_hit_count\":3,\"get_snapshot_nanos\":208286,\"read_index_propose_wait_nanos\":53533,\"read_index_confirm_wait_nanos\":12303,\"read_pool_schedule_wait_nanos\":67574},\"time_detail_v2\":{\"wait_wall_time_ns\":285516,\"process_wall_time_ns\":89196,\"kv_read_wall_time_ns\":382048,\"total_rpc_wall_time_ns\":467602}}}}"] [val="gAABAAAAAgUAQWxpY2U="]
+[2025/06/08 23:08:12.408 -05:00] [INFO] [snapshot.go:764] ["================================================"]
+```
+
+```
+[2025/06/09 00:13:51.032 -05:00] [INFO] [snapshot.go:681] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [snapshot.go:682] [Get] [req.Type=Get] [req="task_id:608 busy_threshold_ms:1000 resource_control_context:<resource_group_name:\"default\" > "]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [snapshot.go:683] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [region_request.go:1055] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [region_request.go:1056] ["SEND REQ TO REGION"] [req.Type=Get] [req="region_id:10011 region_epoch:<conf_ver:1 version:71 > peer:<id:10012 store_id:1 > max_execution_duration_ms:30000 task_id:608 resource_group_tag:\"\\n \\354\\021\\366\\252\\363\\307\\n\\331d\\347\\\\\\250\\225\\207/\\343\\337\\313\\357\\222\\323\\344\\304;\\340\\200'\\243v\\272\\200%\\022 \\371\\222a\\344\\033j\\276D@\\347R0\\357\\346\\000\\010\\327C&\\004K\\362\\023p\\304\\005R(\\251\\036\\3430\\030\\001 \\205\\001\" request_source:\"leader_external_Select\" busy_threshold_ms:1000 resource_control_context:<resource_group_name:\"default\" > cluster_id:7508966257383359189 "]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [region_request.go:1057] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [region_request.go:1061] ["[GET_REQUEST] Starting GET request processing"] [store_addr=10.10.1.3:43641] [store_id=1] [region_id=10011] [timeout=30s] [request_source=leader_external_Select] [context="{\"region_id\":10011,\"region_epoch\":{\"conf_ver\":1,\"version\":71},\"peer\":{\"id\":10012,\"store_id\":1},\"max_execution_duration_ms\":30000,\"task_id\":608,\"resource_group_tag\":\"CiDsEfaq88cK2WTnXKiVhy/j38vvktPkxDvggCejdrqAJRIg+ZJh5BtqvkRA51Iw7+YACNdDJgRL8hNwxAVSKKke4zAYASCFAQ==\",\"request_source\":\"leader_external_Select\",\"busy_threshold_ms\":1000,\"resource_control_context\":{\"resource_group_name\":\"default\"},\"cluster_id\":7508966257383359189}"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [region_request.go:1120] ["[GET_REQUEST] Calculated replica count for GET request"] [replica_number=1] [total_peers=1]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [region_request.go:1158] ["[GET_REQUEST] Sending GET request to TiKV"] [send_to_addr=10.10.1.3:43641] [timeout=30s] [read_type=leader]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client_collapse.go:69] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client_collapse.go:70] [COLLAPSE]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client_collapse.go:71] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client_interceptor.go:46] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client_interceptor.go:47] [INTERCEPTOR]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client_interceptor.go:48] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client.go:736] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client.go:737] ["RPC CLIENT"] [req.Type=Get] [req="region_id:10011 region_epoch:<conf_ver:1 version:71 > peer:<id:10012 store_id:1 > max_execution_duration_ms:30000 task_id:608 resource_group_tag:\"\\n \\354\\021\\366\\252\\363\\307\\n\\331d\\347\\\\\\250\\225\\207/\\343\\337\\313\\357\\222\\323\\344\\304;\\340\\200'\\243v\\272\\200%\\022 \\371\\222a\\344\\033j\\276D@\\347R0\\357\\346\\000\\010\\327C&\\004K\\362\\023p\\304\\005R(\\251\\036\\3430\\030\\001 \\205\\001\" request_source:\"leader_external_Select\" busy_threshold_ms:1000 resource_control_context:<resource_group_name:\"default\" penalty:<> override_priority:8 > source_stmt:<connection_id:822083586 > cluster_id:7508966257383359189 "]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client.go:738] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client.go:647] ["================================================"]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client.go:648] ["SEND REQUEST"] [req.Type=Get] [req="region_id:10011 region_epoch:<conf_ver:1 version:71 > peer:<id:10012 store_id:1 > max_execution_duration_ms:30000 task_id:608 resource_group_tag:\"\\n \\354\\021\\366\\252\\363\\307\\n\\331d\\347\\\\\\250\\225\\207/\\343\\337\\313\\357\\222\\323\\344\\304;\\340\\200'\\243v\\272\\200%\\022 \\371\\222a\\344\\033j\\276D@\\347R0\\357\\346\\000\\010\\327C&\\004K\\362\\023p\\304\\005R(\\251\\036\\3430\\030\\001 \\205\\001\" request_source:\"leader_external_Select\" busy_threshold_ms:1000 resource_control_context:<resource_group_name:\"default\" penalty:<> override_priority:8 > keyspace_id:4294967295 source_stmt:<connection_id:822083586 > cluster_id:7508966257383359189 "]
+[2025/06/09 00:13:51.032 -05:00] [INFO] [client.go:649] ["================================================"]
+[2025/06/09 00:13:51.033 -05:00] [INFO] [region_request.go:1170] ["[GET_REQUEST] GET request completed"] [rpc_duration=912.286µs] [has_error=false] [has_response=true]
+[2025/06/09 00:13:51.033 -05:00] [INFO] [region_request.go:1181] ["[GET_REQUEST] GET response details"] [response_info=]
+[2025/06/09 00:13:51.033 -05:00] [INFO] [region_request.go:1308] ["[GET_REQUEST] GET request succeeded"] [response_info=] [store_id=1] [store_addr=10.10.1.3:43641]
+[2025/06/09 00:13:51.033 -05:00] [INFO] [snapshot.go:762] ["================================================"]
+[2025/06/09 00:13:51.033 -05:00] [INFO] [snapshot.go:763] [Resp] [resp="{\"Resp\":{\"value\":\"gAABAAAAAgUAQWxpY2U=\",\"exec_details_v2\":{\"time_detail\":{\"total_rpc_wall_time_ns\":238777},\"scan_detail_v2\":{\"processed_versions\":1,\"processed_versions_size\":41,\"total_versions\":1,\"rocksdb_block_cache_hit_count\":3,\"get_snapshot_nanos\":24015,\"read_pool_schedule_wait_nanos\":73622},\"time_detail_v2\":{\"wait_wall_time_ns\":108789,\"process_wall_time_ns\":59133,\"kv_read_wall_time_ns\":172887,\"total_rpc_wall_time_ns\":238777}}}}"] [val="gAABAAAAAgUAQWxpY2U="]
+[2025/06/09 00:13:51.033 -05:00] [INFO] [snapshot.go:764] ["================================================"]
+```
+
+sendBatchRequest (client_batch.go)
